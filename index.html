@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form > * {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      form {
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        width: 300px;
+        height: 550px;
+        padding: 20px;
+
+        margin-left: auto;
+        margin-right: auto;
+        background-color: antiquewhite;
+        box-shadow: 5px 5px 5px gray;
+        
+      }
+
+      .registration {
+        margin: 100px auto;
+        
+      }
+
+      input {
+        padding: 10px;
+      }
+
+      textarea {
+        padding: 10px;
+      }
+
+      .button-block button {
+        width: 100px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        background-color:rgb(103, 160, 103);
+        color: white;
+        border-radius: 10px;
+        border: none;
+        box-shadow: 2px 2px 2px grey ;
+        
+      }
+      .button-block button:hover{
+        background-color: white;
+        color: rgb(103, 160, 103);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div ></div>
+    <div class="registration">
+      <form
+        
+        name="val"
+        onsubmit="return validate()"
+      >
+        <div class="fname">
+          <label for="fname">First Name : </label>
+          <input type="text" name="fname" placeholder="Enter first name" />
+        </div>
+        <div class="lname">
+          <label for="lname">Last Name : </label>
+          <input type="text" name="lname" placeholder="Enter last name" />
+        </div>
+
+        <div class="city">
+          <label for="city">City : </label>
+          <input type="text" name="city" placeholder="Enter your city" />
+        </div>
+        <div class="phone">
+          <label for="phone">Phone No : </label>
+          <input type="text" name="phone" placeholder="0123456789" />
+        </div>
+        <div class="address">
+          <label for="address">Address : </label>
+          <textarea name="address" id="add" placeholder="Enter your address"></textarea>
+        </div>
+        <div class="button-block">
+          <button type="submit" value="submit">submit</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const validate = () => {
+        let full=document.getElementsByClassName("registration")[0];
+        let fname = document.val.fname.value;
+        let lname = document.val.lname.value;
+        let city = document.val.city.value;
+        let phone = document.val.phone.value;
+        let address = document.val.address.value;
+
+        if (fname === "" || lname === "" || city === "" || phone === "" || address === "") {
+          alert("Fill all the inputs");
+          return false;
+        }
+
+        if (phone.length != 10) {
+          alert("Provide a correct phone number");
+          return false;
+        }
+
+        return true;
+        
+
+      };
+
+     
+    </script>
+  </body>
+</html>
